@@ -11,10 +11,10 @@ The "bnbPlants" project arose from a challenge faced by my mother in caring for 
 |Item|Cost (Sek)|
 |:----:|:----:|
 |[Raspberry Pi Pico WH](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)|99.19-109.00|
-|Pico Power Supply|N/A|
-|Breadboard (tbt)|tbt|
-|[Soil Moisture Sensor](https://www.electrokit.com/produkt/jordfuktighetssensor-kapacitiv-i2c/)|115.00|
-|Jumper Cables (quantity)|N/A|
+|Pico Power Supply|tbt|
+|[Breadboard (270 connections)](https://www.electrokit.com/produkt/kopplingsdack-270-anslutningar/)|26.10-29.00|
+|[Adafruit STEMMA Soil Sensor](https://www.electrokit.com/produkt/jordfuktighetssensor-kapacitiv-i2c/)|115.00|
+|[JST PH 2mm 4-Pin to Female Socket Cable](https://www.electrokit.com/en/product/kabel-med-jst-ph-4-pol-hona-0-64mm-stift-200mm/)|24.00|
 
 **Note:**
 If you feel confident in your soldering skills, you can readily substitute the Raspberry Pi Pico WH, which comes with pre-soldered headers, with the Raspberry Pi Pico W, which does not have pre-soldered headers, as they are essentially the same.
