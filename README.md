@@ -96,7 +96,7 @@ const token = 'YOUR_TELEGRAM_BOT_TOKEN';
 // Create a bot instance and set polling as true to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
 
-// Initialize plant status
+// Initialize plant status, this is dummy data:
 let status = {
   moisture: '70%',
   temperature: '24C',
