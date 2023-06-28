@@ -82,9 +82,9 @@ The only remaining tasks are to store the data and find a way to inform the user
 ### Telegram Bot
 To create a Telegram Bot, follow these steps:
 
-1. Sign up for Telegram.
-2. Message BotFather with the "/start" command and follow his instructions.
-3. Write the bot. I used JavaScript, my preferred language.
+1. **Register on Telegram**: Create a Telegram account if you don't already have one.
+2. **Engage with BotFather**: Start a chat with BotFather. Initiate the process by sending the "/start" command, then follow the instructions BotFather provides.
+3. **Code the Bot**: The final step involves writing the bot. I chose to use JavaScript, my language of choice.
 
 ```
 // Importing the necessary library
