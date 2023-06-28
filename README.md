@@ -235,8 +235,7 @@ Here is my step to step guide on how to do it:
 5. **Add fields**: Under 'configuration' --> 'Fields', add two new fields, 'Temperature' and 'Moisture'. These can be set as Integers or Floats based on the accuracy you need. In my case, I used an Integer for 'Moisture' and a Float for 'Temperature'.
 6. **Modify your Python script**: Update 'main.py' to include this Python code:
 ```
-import requests
-
+import urequests as requests
 
 def create_json(serial, temperature, moisture):
     """Create a JSON payload with device serial, temperature, and moisture."""
