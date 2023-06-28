@@ -198,3 +198,67 @@ To access the source code for the dashboard shown in the video, you can find it 
 I should mention that I followed [this tutorial](https://www.youtube.com/watch?v=kySGqoU7X-s&ab_channel=Hyperplexed) to learn how to create the "blob" effect.
 
 #### Datacake
+Utilizing Datacake was quite easy. I relied on [Lecture 08](https://www.youtube.com/watch?v=70DMH_Py9TA&t=1040s&ab_channel=ComputerScienceLNU), as well as [this](https://www.youtube.com/watch?v=eu_dwUTPzkU&t=381s&ab_channel=Datacake) video by Datacake to create my dashboard.
+
+Here is my step to step guide on how to do it:
+1. **Create an account**: Register on [Datacake](https://app.datacake.de/)
+2. **Add a device**: After logging in, click on 'devices' on the left menu, and then click the 'Add Device' button in the top right corner.
+3. **Set up the device**: Select 'API' and follow the prompts.
+4. **Configure the device**: In 'device configuration', navigate to 'HTTP Payload Decoder' and input this JavaScript code:
+   ```
+     function Decoder(request) {
+         var payload = JSON.parse(request.body);
+         
+         var serial = payload.serial;
+         var temperature = payload["data"]["TEMPERATURE"]
+         var soil_moisture = payload["data"]["SOIL_MOISTURE"]
+         
+         return [
+             {
+             "field": "device",
+             "value": serial,
+             },
+             {
+             "device": serial,
+             "field": "TEMPERATURE",
+             "value": temperature,
+             },
+             {
+                 "device": serial
+                 "field": "SOIL_MOISTURE",
+                 "value": soil_moisture,
+             }
+         ]
+     }
+   ```
+   Remember to save this setting.
+5. **Add fields**: Under 'configuration' --> 'Fields', add two new fields, 'Temperature' and 'Moisture'. These can be set as Integers or Floats based on the accuracy you need. In my case, I used an Integer for 'Moisture' and a Float for 'Temperature'.
+6. **Modify your Python script**: Update 'main.py' to include this Python code:
+```
+import requests
+
+
+def create_json(serial, temperature, moisture):
+    """Create a JSON payload with device serial, temperature, and moisture."""
+    data = {
+        "serial": serial,
+        "data": {
+            "temperature": temperature,
+            "moisture": moisture,
+        },
+    }
+    return data
+
+
+def post_data(url, headers, data):
+    """Post data to the provided URL with the provided headers."""
+    response = requests.post(url, json=data, headers=headers)
+    print(response.status_code)
+    print(response.text)
+```
+You can find the full script in 'main.py'.
+
+7. **Add a dashboard**: On the left menu, add a new dashboard and design it according to your preference. Here's an example of how your dashboard might look: 
+<img width="1012" alt="Screenshot 2023-06-28 at 14 01 32" src="https://github.com/realfishsam/bnbPlants/assets/92118699/b2ac1446-4333-40d6-b2ea-a21f21a56132">
+
+And there you have it - your data visualized in a user-friendly dashboard!
