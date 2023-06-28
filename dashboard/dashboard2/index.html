@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="blob"></div>
+    <div id="dashboard">
+        <div id="currentValues">
+            <div class="valueBox" id="temperature">
+                <h2>Temperature</h2>
+                <p id="tempValue">0</p>
+            </div>
+            <div class="valueBox" id="moisture">
+                <h2>Moisture</h2>
+                <p id="moistureValue">0</p>
+            </div>
+            <div class="valueBox" id="wateringTime">
+                <h2>Next Watering</h2>
+                <p id="waterTimeValue">0</p>
+            </div>
+        </div>
+        <div id="chartContainer">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
+    <script defer src="index.js"></script>
+</body>
+</html>
