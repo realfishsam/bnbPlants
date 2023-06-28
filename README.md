@@ -243,8 +243,8 @@ def create_json(serial, temperature, moisture):
     data = {
         "serial": serial,
         "data": {
-            "temperature": temperature,
-            "moisture": moisture,
+            "TEMPERATURE": temperature,
+            "SOIL_MOISTURE": moisture,
         },
     }
     return data
