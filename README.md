@@ -2,10 +2,10 @@
 Say goodbye to dry plants and hello to bnbPlants: the witty, moisture-measuring marvel that keeps your green companions hydrated! bnbPlants measures soil moisture, offers a dashboard, and sends witty reminders to water your plants.
 
 # Introduction
-Discover the fascinating world of IoT with "bnbPlants," a project that originated during the summer course at Linnaeus University in 2023. This system effectively measures soil moisture and temperature, and intelligently predicts the watering needs of your plants. The Raspberry Pi Pico serves as the core component, ensuring optimal growth and hydration for every plant in your garden.
+Discover the fascinating world of IoT with "bnbPlants," a project that originated during the summer course at Linnaeus University in 2023. This system effectively measures soil moisture and temperature and intelligently predicts the watering needs of your plants. The Raspberry Pi Pico serves as the core component, ensuring optimal growth and hydration for every plant in your garden.
 
 # Objective
-The "bnbPlants" project arose from a challenge faced by my mother in caring for the plants at our family's Airbnb property during the off-season summer months. Uncertain watering schedules led to stress and inefficiency. To tackle this issue, "bnbPlants" introduces a soil moisture system that not only monitors soil conditions and temperature but also predicts when the next watering is required. The project includes a user-friendly online dashboard, accessible at any time and from anywhere, providing real-time updates on the plants' needs. Additionally, it will send notifications via Telegram to the user when it's time to water the plants, making the task of plant care effortless and precise even for non-tech savvy individuals.
+The "bnbPlants" project arose from a challenge faced by my mother in caring for the plants at our family's Airbnb property during the off-season summer months. Uncertain watering schedules led to stress and inefficiency. To tackle this issue, "bnbPlants" introduces a soil moisture system that not only monitors soil conditions and temperature but also predicts when the next watering is required. The project includes a user-friendly online dashboard, accessible at any time and from anywhere, providing real-time updates on the plants' needs. Additionally, it will send notifications via Telegram to the user when it's time to water the plants, making the task of plant care effortless and precise even for non-tech-savvy individuals.
 
 # Materials
 |Item|Cost (Sek)|
@@ -178,7 +178,23 @@ setInterval(() => {
     // Send the status message to the user
     bot.sendMessage(chatId, statusText);
   }
+
 }, updateInterval * 60 * 60 * 1000); // Convert updateInterval from hours to milliseconds
 ```
 
+### Data Visualization 
+#### Custom Dashboard
+At first, my intention was to create my own dashboard since I have ample experience as a web developer. However, I realized that I lacked proficiency in CSS and decided to expand my knowledge in that area. Here is the outcome of my efforts:
 
+https://github.com/realfishsam/bnbPlants/assets/92118699/aeb77a9d-5f1f-48b2-a057-7a0d57199d2c
+
+Unfortunately, my limited understanding of CSS led to issues with file structure and other aspects, as depicted in the following image:
+<img width="299" alt="Screenshot 2023-06-28 at 13 30 35" src="https://github.com/realfishsam/bnbPlants/assets/92118699/45e8a5fa-54e2-4c96-808b-574d6dd079de">
+
+As a result, my enthusiasm waned, and I lost interest in the project.
+
+To access the source code for the dashboard shown in the video, you can find it in the "Dashboard" folder. Just open the file "index.html" located within the "dashboard/dashboard2" directory.
+
+I should mention that I followed [this tutorial](https://www.youtube.com/watch?v=kySGqoU7X-s&ab_channel=Hyperplexed) to learn how to create the "blob" effect.
+
+#### Datacake
