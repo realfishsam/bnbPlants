@@ -1,6 +1,31 @@
 # bnbPlants
 Say goodbye to dry plants and hello to bnbPlants: the witty, moisture-measuring marvel that keeps your green companions hydrated! bnbPlants measures soil moisture, offers a dashboard, and sends witty reminders to water your plants.
 
+# Configure & Run Software
+## Configure
+
+If you have completed the setup of all the necessary hardware, firmware, and other components, and you simply want to execute the software and start the project:
+
+main.py: 
+Replace the following variables with your specific configuration:
+
+1. **SSID**: Replace with your Wi-Fi network name
+2. **PASSWORD**: Replace with your Wi-Fi password
+3. **API_URL**: Replace with your Datacake API URL
+4. **API_DEVICE**: Replace with your Datacake device ID
+
+bnbPlants_bot.js: 
+Replace the following variable with your specific configuration:
+
+1. **TOKEN**: Replace with your Telegram bot token
+   
+Once these configurations have been added, the software should be ready to run.
+
+## Run
+
+Run `node bnbPlants_bot.js` in a terminal, then power up the Raspberry Pi Pico. That's it!
+
+
 # Introduction
 Discover the fascinating world of IoT with "bnbPlants," a project that originated during the summer course at Linnaeus University in 2023. This system effectively measures soil moisture and temperature and intelligently predicts the watering needs of your plants. The Raspberry Pi Pico serves as the core component, ensuring optimal growth and hydration for every plant in your garden.
 
