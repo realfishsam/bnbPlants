@@ -304,4 +304,14 @@ module.exports = fetchData;
 ```
 This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
 
+# Areas of Improvement and Further Development
+
+
 # Conclusion
+The bnbPlants project successfully provides a reliable solution to the common problem of plant care, especially in spaces such as an Airbnb property. The project demonstrates that with the use of relatively inexpensive materials and a bit of creativity, it's possible to create an IoT project that doesn't just measure soil conditions but also delivers critical data to the user in an accessible and user-friendly manner.
+
+This README guide documents the journey of the project from inception to realization, covering the hardware and software aspects. It not only showcases the process of setting up the Raspberry Pi Pico and Adafruit STEMMA Soil Sensor but also the implementation of the Telegram bot and the visualization of the data via Datacake.
+
+While the attempt to build a custom dashboard was met with some challenges, I instead leveraged an existing service, Datacake, for creating a functional and visually pleasing dashboard. This demonstrates an important principle of IoT and programming in general - to use existing tools and resources when they meet the project's needs, allowing us to focus on the unique aspects of our project.
+
+I hope that bnbPlants inspires and assists others in their journey to explore the fascinating world of IoT, and provides a starting point for anyone looking to ensure the well-being of their plants, whether in an Airbnb or their personal home.
