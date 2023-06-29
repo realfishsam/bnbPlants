@@ -189,6 +189,7 @@ At first, my intention was to create my own dashboard since I have ample experie
 https://github.com/realfishsam/bnbPlants/assets/92118699/aeb77a9d-5f1f-48b2-a057-7a0d57199d2c
 
 Unfortunately, my limited understanding of CSS led to issues with file structure and other aspects, as depicted in the following image:
+
 <img width="299" alt="Screenshot 2023-06-28 at 13 30 35" src="https://github.com/realfishsam/bnbPlants/assets/92118699/45e8a5fa-54e2-4c96-808b-574d6dd079de">
 
 As a result, my enthusiasm waned, and I lost interest in the project.
