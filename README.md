@@ -21,9 +21,22 @@ If you feel confident in your soldering skills, you can readily substitute the R
 
 # Putting It All Together
 
+## Firmware
+To successfully complete this project, you will need to have MicroPython installed on a Raspberry Pi Pico W board.
+
+To download MicroPython with Wi-Fi support, press [here](https://micropython.org/download/rp2-pico-w/rp2-pico-w-latest.uf2)
+
+Once you have downloaded MicroPython, please refer to the following video for detailed instructions on how to install MicroPython onto a Pico
+
+<img src="https://www.raspberrypi.com/documentation/microcontrollers/images/MicroPython-640x360-v2.gif"
+     alt="MicroPython on a Rasp" />
+
+More information can be found [here](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html).
+
 ## Hardware
 
 ### Wiring 
+
 <img src="Pi Soil_bb.png"
      alt="Markdown Monster icon" />
 
