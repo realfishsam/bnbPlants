@@ -37,8 +37,18 @@ More information can be found [here](https://www.raspberrypi.com/documentation/m
 
 ### Wiring 
 
-<img src="Pi Soil_bb.png"
-     alt="Markdown Monster icon" />
+<img src="bnbPlants.png"
+     alt="Wiring Png" />
+
+Following Adafruit's [datasheet](https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/overview), and Raspberry Pi's [datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf?_gl=1*xj3ezv*_ga*MjYwNDYyMTE4LjE2ODY3MzQ5MjU.*_ga_22FD70LWDS*MTY4ODAzNzkxMC40LjEuMTY4ODAzODM2MC4wLjAuMA..) I ended up wiring as above.
+
+|Pi Connection|Adafruit Connection|
+|:----:|:----:|
+|GP14|I2C SDA|
+|GP15|I2C SCL|
+|3v3(OUT)|VIN|
+|GND|GND|
+
 
 ## Software
 ### Sensor and Pico Software
