@@ -255,6 +255,7 @@ def post_data(url, headers, data):
     print(response.status_code)
     print(response.text)
 ```
+The above code utilizes Micropython's version of the requests module, specifically urequests, to send data to Datacake.
 You can find the full script in 'main.py'.
 
 7. **Add a dashboard**: On the left menu, add a new dashboard and design it according to your preference. Here's an example of how your dashboard might look: 
