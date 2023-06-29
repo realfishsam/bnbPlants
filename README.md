@@ -193,6 +193,7 @@ Unfortunately, my limited understanding of CSS led to issues with file structure
 <img width="299" alt="Screenshot 2023-06-28 at 13 30 35" src="https://github.com/realfishsam/bnbPlants/assets/92118699/45e8a5fa-54e2-4c96-808b-574d6dd079de">
 
 As a result, my enthusiasm waned, and I lost interest in the project.
+Nevertheless, the main factor influencing my decision to transition to Datacake was not solely based on the aforementioned reason; the primary motive behind this move was the cost of maintenance. To effectively run and manage this dashboard, I would be required to host it on a server, which incurs financial expenses. For instance, Linode, one of the largest server providers, offers its most affordable option at a monthly rate of $5, which I do not wish to spend. Given my current situation, where I am frequently on the move, self-hosting also becomes impractical.
 
 To access the source code for the dashboard shown in the video, you can find it in the "Dashboard" folder. Just open the file "index.html" located within the "dashboard/dashboard2" directory.
 
@@ -302,3 +303,5 @@ async function fetchData() {
 module.exports = fetchData;
 ```
 This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
+
+# Conclusion
