@@ -304,8 +304,11 @@ module.exports = fetchData;
 ```
 This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
 
-# Areas of Improvement and Further Development
-
+# Areas of Improvement and Potential Further Development
+1. **Launch of Custom Dashboard**: The Datacake dashboard serves its purpose well. However, a custom dashboard can provide greater flexibility and be tailored specifically to bnbPlants' needs.
+2. **Support for Multiple Plants**: At present, the system supports one plant. But users often have more than one plant they would like to monitor.
+3. **Mobile App Development**: Instead of a Telegram bot, a dedicated mobile app could offer a more engaging platform for users to receive notifications, access plant data, and adjust care settings conveniently.
+4. **Integration with Smart Home Systems**: Considering the prevalence of smart home ecosystems, integrating bnbPlants with Amazon Alexa, Google Home, or Apple HomeKit is an area to explore. Users could leverage voice commands to monitor their plants, adjust care settings, and receive updates.
 
 # Conclusion
 The bnbPlants project successfully provides a reliable solution to the common problem of plant care, especially in spaces such as an Airbnb property. The project demonstrates that with the use of relatively inexpensive materials and a bit of creativity, it's possible to create an IoT project that doesn't just measure soil conditions but also delivers critical data to the user in an accessible and user-friendly manner.
