@@ -262,3 +262,42 @@ You can find the full script in 'main.py'.
 <img width="1012" alt="Screenshot 2023-06-28 at 14 01 32" src="https://github.com/realfishsam/bnbPlants/assets/92118699/b2ac1446-4333-40d6-b2ea-a21f21a56132">
 
 And there you have it - your data visualized in a user-friendly dashboard!
+
+### Real-Time Data Notifications
+In the introductory section, I expressed my desire to notify bnbPlants users regarding when to water their plants. In addition to that, I aim to provide users with updates about soil moisture and other related data.
+To accomplish this objective, it was necessary for me to acquire real-time data from Datacake and forward it through telegram. The following is a module I composed for my bnbPlants_bot.js application to facilitate this task:
+```
+async function fetchData() {
+    const now = new Date();
+    const timeframeStart = formatDateTime(new Date(now), 0, 0, 0, 0);
+    const timeframeEnd = formatDateTime(new Date(now), 23, 59, 59, 999);
+    const fields = 'TEMPERATURE,SOIL_MOISTURE';
+    const resolution = 'raw';
+
+    const response = await axios.get(DEVICE_URL, {
+        headers: {
+            'Authorization': `Token ${API_TOKEN}`,
+        },
+        params: {
+            fields,
+            resolution,
+            timeframe_start: timeframeStart,
+            timeframe_end: timeframeEnd,
+        },
+    });
+
+    const lastTwoEntries = response.data.slice(-2);
+
+    const combinedEntry = {
+        time: lastTwoEntries[0].time,
+        SOIL_MOISTURE: lastTwoEntries[0].SOIL_MOISTURE || lastTwoEntries[1].SOIL_MOISTURE,
+        TEMPERATURE: lastTwoEntries[0].TEMPERATURE || lastTwoEntries[1].TEMPERATURE,
+    };
+
+    return combinedEntry;
+};
+
+// export the fetchData function
+module.exports = fetchData;
+```
+This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
