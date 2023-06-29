@@ -100,8 +100,6 @@ It outputted proper data points:
 |35.41015|462|
 |35.10925|433|
 
-The only remaining tasks are to store the data and find a way to inform the user about it.
-
 ### Telegram Bot
 To create a Telegram Bot, follow these steps:
 
