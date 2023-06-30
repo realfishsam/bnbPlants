@@ -62,7 +62,7 @@ More information can be found [here](https://www.raspberrypi.com/documentation/m
 
 ### Wiring 
 
-<img src="bnbPlants.png"
+<img src="assets/hardware/fritzing.png"
      alt="Wiring Png" />
 
 Following Adafruit's [datasheet](https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/overview), and Raspberry Pi's [datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf?_gl=1*xj3ezv*_ga*MjYwNDYyMTE4LjE2ODY3MzQ5MjU.*_ga_22FD70LWDS*MTY4ODAzNzkxMC40LjEuMTY4ODAzODM2MC4wLjAuMA..) I ended up wiring as above.
@@ -367,8 +367,8 @@ I hope that bnbPlants inspires and assists others in their journey to explore th
 
 # Project Photos
 <div style="display: flex; justify-content: space-around;">
-  <img src="p1.png" width="225">
-  <img src="p2.png" width="225">
-  <img src="p3.png" width="225">
-  <img src="p4.png" width="225">
+  <img src="assets/imgs/p1.png" width="225">
+  <img src="assets/imgs/p2.png" width="225">
+  <img src="assets/imgs/p3.png" width="225">
+  <img src="assets/imgs/p4.png" width="225">
 </div>
