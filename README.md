@@ -364,3 +364,11 @@ This README guide documents the journey of the project from inception to realiza
 While the attempt to build a custom dashboard was met with some challenges, I instead leveraged an existing service, Datacake, for creating a functional and visually pleasing dashboard. This demonstrates an important principle of IoT and programming in general - to use existing tools and resources when they meet the project's needs, allowing us to focus on the unique aspects of our project.
 
 I hope that bnbPlants inspires and assists others in their journey to explore the fascinating world of IoT, and provides a starting point for anyone looking to ensure the well-being of their plants, whether in an Airbnb or their personal home.
+
+# Project Photos
+<div style="display: flex; justify-content: space-around;">
+  <img src="p1.png" width="225">
+  <img src="p2.png" width="225">
+  <img src="p3.png" width="225">
+  <img src="p4.png" width="225">
+</div>
