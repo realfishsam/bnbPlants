@@ -387,10 +387,13 @@ While the attempt to build a custom dashboard was met with some challenges, I in
 
 I hope that bnbPlants inspires and assists others in their journey to explore the fascinating world of IoT, and provides a starting point for anyone looking to ensure the well-being of their plants, whether in an Airbnb or their personal home.
 
-# Project Photos
+# Project Design
+## Pictures
 <div style="display: flex; justify-content: space-around;">
   <img src="assets/imgs/p1.png" width="225">
   <img src="assets/imgs/p2.png" width="225">
   <img src="assets/imgs/p3.png" width="225">
   <img src="assets/imgs/p4.png" width="225">
 </div>
+
+## Video Presentation
