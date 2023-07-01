@@ -23,7 +23,7 @@ Once these configurations have been added, the software should be ready to run.
 
 ## Run
 
-Run `node bnbPlants_bot.js` in a terminal, then power up the Raspberry Pi Pico. That's it!
+Run `node bnbPlants_bot.js` in a terminal, then power up the Raspberry Pi Pico, with main.py. That's it!
 
 
 # Introduction
