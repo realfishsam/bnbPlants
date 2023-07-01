@@ -1,6 +1,7 @@
 # bnbPlants
 
 @author Samuel Tinnerholm / RealFishSam / st223fu
+
 @time 10m
 
 Say goodbye to dry plants and hello to bnbPlants: the witty, moisture-measuring marvel that keeps your green companions hydrated! bnbPlants measures soil moisture, offers a dashboard, and sends witty reminders to water your plants.
@@ -129,6 +130,11 @@ It outputted proper data points:
 |35.41015|462|
 |35.10925|433|
 
+To upload this code to the pico, name the file `main.py`. [Download and install VSCode](https://code.visualstudio.com/download), then install !
+the [Pico-W-Go extension](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go). Inside VSCode, right-click on your file `main.py` --> Upload Project to Pico, with your pico plugged into your computer.
+
+<img width="400" src="assets/imgs/Screenshot 2023-07-01 at 09.30.38.png"/>
+
 ### Telegram Bot
 To create a Telegram Bot, follow these steps:
 
@@ -232,6 +238,8 @@ setInterval(() => {
 }, updateInterval * 60 * 60 * 1000); // Convert updateInterval from hours to milliseconds
 ```
 
+In order to execute the code, NodeJS needs to be installed. You can find the installation instructions [here](https://nodejs.dev/en/learn/how-to-install-nodejs/)
+
 ### Data Visualization 
 #### Custom Dashboard
 At first, my intention was to create my own dashboard since I have ample experience as a web developer. However, I realized that I lacked proficiency in CSS and decided to expand my knowledge in that area. Here is the outcome of my efforts:
@@ -315,6 +323,14 @@ You can find the full script in 'main.py'.
 
 And there you have it - your data visualized in a user-friendly dashboard!
 
+Due to the limitations of the Datacake free tier, I am only able to send approximately 500 messages per day. To exceed this limit and send more messages, a paid subscription is required.
+
+LoRa connectivity is not available in the area where my parent's BnB is located. Moreover, opting for WiFi makes the initial cost of the complete device cheaper. This is because using LoRa would require additional antennas and related equipment, whereas with WiFi, only the pico device is necessary. Although electricity expenses may be higher in the long term, the device itself remains inexpensive to operate. Additionally, the cost savings from reduced trips to the BnB for my mother, resulting in lower gasoline expenses, further contribute to the overall affordability.
+
+Datacake's webhook was used to send data.
+
+One of the conveniences of using Datacake is that I don't have to manage my own database. However, if I were to choose a database, MongoDB would be my preferred option due to its innovative approach of using JSON-like files. With Datacake's free tier, I can store several hundred datapoints without any cost, enabling me to dedicate my attention to other aspects of the project.
+
 ### Real-Time Data Notifications
 In the introductory section, I expressed my desire to notify bnbPlants users regarding when to water their plants. In addition to that, I aim to provide users with updates about soil moisture and other related data.
 To accomplish this objective, it was necessary for me to acquire real-time data from Datacake and forward it through telegram. The following is a module I composed for my bnbPlants_bot.js application to facilitate this task:
@@ -353,6 +369,8 @@ async function fetchData() {
 module.exports = fetchData;
 ```
 This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
+
+This also uses the DataCake webhooks.
 
 # Areas of Improvement and Potential Further Development
 1. **Launch of Custom Dashboard**: The Datacake dashboard serves its purpose well. However, a custom dashboard can provide greater flexibility and be tailored specifically to bnbPlants' needs.
