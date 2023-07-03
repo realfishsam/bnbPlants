@@ -41,7 +41,7 @@ The "bnbPlants" project arose from a challenge faced by my mother in caring for 
 |Item|Cost (Sek)|Purpose|
 |:----:|:----:|:----:|
 |[Raspberry Pi Pico WH](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)|99.19-109.00|Communicates with all components **"The Brain"**|
-|Pico Power Supply|tbt|Provides power to components **"The Muscles"**|
+|Pico Power Supply (any old phone charger)|N/A|Provides power to components **"The Muscles"**|
 |[Breadboard (270 connections)](https://www.electrokit.com/produkt/kopplingsdack-270-anslutningar/)|26.10-29.00|Easy wiring due to lack of soldering equipment|
 |[Adafruit STEMMA Soil Sensor](https://www.electrokit.com/produkt/jordfuktighetssensor-kapacitiv-i2c/)|115.00|Measures soil moisture & temperature|
 |[JST PH 2mm 4-Pin to Female Socket Cable](https://www.electrokit.com/en/product/kabel-med-jst-ph-4-pol-hona-0-64mm-stift-200mm/)|24.00|Connects sensor to Pico|
