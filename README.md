@@ -41,7 +41,7 @@ The "bnbPlants" project arose from a challenge faced by my mother in caring for 
 |Item|Cost (Sek)|Purpose|
 |:----:|:----:|:----:|
 |[Raspberry Pi Pico WH](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)|99.19-109.00|Communicates with all components **"The Brain"**|
-|Pico Power Supply|tbt|Provides power to components **"The Muscles"**|
+|Pico Power Supply (any old phone charger)|N/A|Provides power to components **"The Muscles"**|
 |[Breadboard (270 connections)](https://www.electrokit.com/produkt/kopplingsdack-270-anslutningar/)|26.10-29.00|Easy wiring due to lack of soldering equipment|
 |[Adafruit STEMMA Soil Sensor](https://www.electrokit.com/produkt/jordfuktighetssensor-kapacitiv-i2c/)|115.00|Measures soil moisture & temperature|
 |[JST PH 2mm 4-Pin to Female Socket Cable](https://www.electrokit.com/en/product/kabel-med-jst-ph-4-pol-hona-0-64mm-stift-200mm/)|24.00|Connects sensor to Pico|
@@ -253,7 +253,7 @@ Unfortunately, my limited understanding of CSS led to issues with file structure
 As a result, my enthusiasm waned, and I lost interest in the project.
 Nevertheless, the main factor influencing my decision to transition to Datacake was not solely based on the aforementioned reason; the primary motive behind this move was the cost of maintenance. To effectively run and manage this dashboard, I would be required to host it on a server, which incurs financial expenses. For instance, Linode, one of the largest server providers, offers its most affordable option at a monthly rate of $5, which I do not wish to spend. Given my current situation, where I am frequently on the move, self-hosting also becomes impractical.
 
-To access the source code for the dashboard shown in the video, you can find it in the "Dashboard" folder. Just open the file "index.html" located within the "dashboard/dashboard2" directory.
+[Source code](https://github.com/realfishsam/bnbPlantsDashboard) for the dashboard shown in the video.
 
 I should mention that I followed [this tutorial](https://www.youtube.com/watch?v=kySGqoU7X-s&ab_channel=Hyperplexed) to learn how to create the "blob" effect.
 
