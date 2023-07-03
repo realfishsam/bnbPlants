@@ -3,7 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const fetchData = require('./cake.js');
 
 // Initialize the bot token
-const TOKEN = 'YOUR BOT TOKEN HERE';
+const TOKEN = 'YOUR TOKEN HERE';
 const bot = new TelegramBot(TOKEN, {polling: true});
 
 let updateInterval = 24;
@@ -11,20 +11,30 @@ let updateInterval = 24;
 // Initialize chatId
 let chatId;
 
+// Define the intervalId
+let intervalId;
+
 // Function to fetch and send status
 async function sendStatus() {
     fetchData().then((data) => {
         console.log("Fetched data from Datacake: ", data);
         data.TEMPERATURE = Math.round(data.TEMPERATURE * 10) / 10;
         data.SOIL_MOISTURE = Math.round( (data.SOIL_MOISTURE / 2000) * 100) ;
-        const statusText = `Moisture: ${data.SOIL_MOISTURE}%\nTemperature: ${data.TEMPERATURE}°C\nWater in: ${status.daysUntilWatering} days`;
+        const statusText = `Moisture: ${data.SOIL_MOISTURE}%\nTemperature: ${data.TEMPERATURE}°C\nWater in: ${data.DAYS} days`;
         bot.sendMessage(chatId, statusText);
+        const seeMoreMessage = `See more at https://app.datacake.de/dashboard/d/de83fefc-12d6-4ee9-87cc-da17489cd981`;
+        bot.sendMessage(chatId, seeMoreMessage);
     });
 }
 
 // Function to periodically fetch and send status
 function startUpdateInterval() {
-    setInterval(sendStatus, updateInterval * 3600000); // updateInterval is in hours, so we convert to milliseconds
+    // clear the previous interval if it exists
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+
+    intervalId = setInterval(sendStatus, updateInterval * 3600000); // updateInterval is in hours, so we convert to milliseconds
 }
 
 // Event listeners for commands
