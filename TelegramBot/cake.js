@@ -1,8 +1,7 @@
 const axios = require('axios');
 
-
-const API_TOKEN = 'YOUR TOKEN HERE';
-const DEVICE_URL = 'https://api.datacake.co/v1/devices/' + 'YOUR DEVIDE ID HERE' + '/historic_data/';
+const API_TOKEN = 'YOUR API TOKEN HERE';
+const DEVICE_URL = 'YOUR DEVICE URL HERE';
 
 const formatDateTime = (date, hours, minutes, seconds, milliseconds) => {
     date.setHours(hours, minutes, seconds, milliseconds);
@@ -29,7 +28,7 @@ async function fetchData() {
     const now = new Date();
     const timeframeStart = formatDateTime(new Date(now), 0, 0, 0, 0);
     const timeframeEnd = formatDateTime(new Date(now), 23, 59, 59, 999);
-    const fields = 'TEMPERATURE,SOIL_MOISTURE';
+    const fields = 'TEMPERATURE,SOIL_MOISTURE,DAYS';
     const resolution = 'raw';
 
     const response = await axios.get(DEVICE_URL, {
@@ -44,13 +43,22 @@ async function fetchData() {
         },
     });
 
-    const lastTwoEntries = response.data.slice(-2);
+    const lastCoupleEntries = response.data.slice(-6);
 
-    const combinedEntry = {
-        time: lastTwoEntries[0].time,
-        SOIL_MOISTURE: lastTwoEntries[0].SOIL_MOISTURE || lastTwoEntries[1].SOIL_MOISTURE,
-        TEMPERATURE: lastTwoEntries[0].TEMPERATURE || lastTwoEntries[1].TEMPERATURE,
+    // loop through lastCoupleEntries, and create a new json object. Include the first soil moisture value that is not null, and the first temperature value that is not null, and the first days value that is not null
+    let combinedEntry = {
+        SOIL_MOISTURE: null,
+        TEMPERATURE: null,
+        DAYS: null,
     };
+
+    lastCoupleEntries.forEach(entry => {
+      Object.keys(entry).forEach(key => {
+        if (entry[key] !== null) {
+          combinedEntry[key] = entry[key];
+        }
+      });
+    });
 
     return combinedEntry;
 };
@@ -62,3 +70,9 @@ async function main() {
     data = await fetchData();
     console.log(data);
 }
+
+// if this is the main module, run main()
+if (require.main === module) {
+    main();
+}
+
