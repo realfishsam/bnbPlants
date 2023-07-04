@@ -437,6 +437,7 @@ In order to execute the code, NodeJS needs to be installed. You can find the ins
 2. **Support for Multiple Plants**: At present, the system supports one plant. But users often have more than one plant they would like to monitor.
 3. **Mobile App Development**: Instead of a Telegram bot, a dedicated mobile app could offer a more engaging platform for users to receive notifications, access plant data, and adjust care settings conveniently.
 4. **Integration with Smart Home Systems**: Considering the prevalence of smart home ecosystems, integrating bnbPlants with Amazon Alexa, Google Home, or Apple HomeKit is an area to explore. Users could leverage voice commands to monitor their plants, adjust care settings, and receive updates.
+5. **🚰 Self Watering System**: A significant upgrade would be a self-watering feature using automated pumps linked to a water reservoir. The reservoir could be a refillable container or linked to the home's water supply, with safety measures to prevent overflows. This not only simplifies plant care but ensures consistent watering, even when the user is away.
 
 # Conclusion
 The bnbPlants project successfully provides a reliable solution to the common problem of plant care, especially in spaces such as an Airbnb property. The project demonstrates that with the use of relatively inexpensive materials and a bit of creativity, it's possible to create an IoT project that doesn't just measure soil conditions but also delivers critical data to the user in an accessible and user-friendly manner.
