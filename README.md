@@ -135,111 +135,6 @@ the [Pico-W-Go extension](https://marketplace.visualstudio.com/items?itemName=pa
 
 <img width="400" src="assets/imgs/Screenshot 2023-07-01 at 09.30.38.png"/>
 
-### Telegram Bot
-To create a Telegram Bot, follow these steps:
-
-1. **Register on Telegram**: Create a Telegram account if you don't already have one.
-2. **Engage with BotFather**: Start a chat with BotFather. Initiate the process by sending the "/start" command, then follow the instructions BotFather provides.
-3. **Code the Bot**: The final step involves writing the bot. I chose to use JavaScript, my language of choice.
-
-```
-// Importing the necessary library
-const TelegramBot = require('node-telegram-bot-api');
-
-// replace the value below with the Telegram token you received from the BotFather
-const token = 'YOUR_TELEGRAM_BOT_TOKEN';
-
-// Create a bot instance and set polling as true to fetch new updates
-const bot = new TelegramBot(token, {polling: true});
-
-// Initialize plant status, this is dummy data:
-let status = {
-  moisture: '70%',
-  temperature: '24C',
-  daysUntilWatering: 3,
-};
-
-// Set default update interval in hours
-let updateInterval = 24;
-
-// Initialize chatId
-let chatId;
-
-// Event listener for "/status" command
-bot.onText(/\/status/, (msg) => {
-  // Store the chat ID 
-  chatId = msg.chat.id;
-  
-  // Format the status message
-  const statusText = `Moisture: ${status.moisture}\nTemperature: ${status.temperature}\nEstimated days until watering: ${status.daysUntilWatering}`;
-  
-  // Send the status message to the user
-  bot.sendMessage(chatId, statusText);
-});
-
-// Event listener for "/interval" command with no arguments
-bot.onText(/\/interval$/, (msg) => {
-  // Store the chat ID 
-  const chatId = msg.chat.id;
-  
-  // Prompt user to enter a number after the command
-  bot.sendMessage(chatId, 'Please enter a number after the command, e.g. "/interval 24"');
-});
-
-// Event listener for "/interval" command with one or more arguments
-bot.onText(/\/interval (.+)/, (msg, match) => {
-  // Store the chat ID 
-  chatId = msg.chat.id;
-
-  // Extract the input from the user
-  const resp = match[1];
-
-  // Validate the input number and set the update interval if it's within a reasonable range
-  if (!isNaN(resp) && isFinite(resp) && resp >= 0.25 && resp <= 168) {
-    updateInterval = resp;
-    const intervalMessage = resp == 1 ? 'Update interval set to every hour' : `Update interval set to every ${resp} hours`;
-    bot.sendMessage(chatId, intervalMessage);
-  } else {
-    // Prompt user to enter a valid number if input is not within the range
-    bot.sendMessage(chatId, 'Please enter a valid number between 0.25 and 168 for the update interval (in hours)');
-  }
-});
-
-// Event listener for "/help" command
-bot.onText(/\/help/, (msg) => {
-  // Store the chat ID
-  chatId = msg.chat.id;
-
-  // Send a list of available commands to the user
-  bot.sendMessage(chatId, 'Commands:\n/status - Get the current status of the plant\n/interval - Set the update interval (in hours)');
-});
-
-// Event listener for "/start" command
-bot.onText(/\/start/, (msg) => {
-  // Store the chat ID
-  chatId = msg.chat.id;
-
-  // Welcome the user and send a list of available commands
-  bot.sendMessage(chatId, 'Welcome to the BnB Plants Bot!');
-  bot.sendMessage(chatId, 'Commands:\n/status - Get the current status of the plant\n/interval - Set the update interval (in hours)\n/help - Get a list of commands');
-});
-
-// Function to send updates to the user every X hours
-setInterval(() => {
-  // Check if chat ID exists
-  if (chatId) {
-    // Format the status message
-    const statusText = `Moisture: ${status.moisture}\nTemperature: ${status.temperature}\nEstimated days until watering: ${status.daysUntilWatering}`;
-    
-    // Send the status message to the user
-    bot.sendMessage(chatId, statusText);
-  }
-
-}, updateInterval * 60 * 60 * 1000); // Convert updateInterval from hours to milliseconds
-```
-
-In order to execute the code, NodeJS needs to be installed. You can find the installation instructions [here](https://nodejs.dev/en/learn/how-to-install-nodejs/)
-
 ### Data Visualization 
 #### Custom Dashboard
 At first, my intention was to create my own dashboard since I have ample experience as a web developer. However, I realized that I lacked proficiency in CSS and decided to expand my knowledge in that area. Here is the outcome of my efforts:
@@ -258,7 +153,7 @@ Nevertheless, the main factor influencing my decision to transition to Datacake 
 I should mention that I followed [this tutorial](https://www.youtube.com/watch?v=kySGqoU7X-s&ab_channel=Hyperplexed) to learn how to create the "blob" effect.
 
 #### Datacake
-Utilizing Datacake was quite easy. I relied on [Lecture 08](https://www.youtube.com/watch?v=70DMH_Py9TA&t=1040s&ab_channel=ComputerScienceLNU), as well as [this](https://www.youtube.com/watch?v=eu_dwUTPzkU&t=381s&ab_channel=Datacake) video by Datacake to create my dashboard.
+Utilizing Datacake was quite easy. I relied on [Lecture 08](https://www.youtube.com/watch?v=70DMH_Py9TA&t=1040s&ab_channel=ComputerScienceLNU), as well as [this](https://www.youtube.com/watch?v=eu_dwUTPzkU&t=381s&ab_channel=Datacake) video by Datacake to create my dashboard, with Datacake's webhook.
 
 Here is my step to step guide on how to do it:
 1. **Create an account**: Register on [Datacake](https://app.datacake.de/)
@@ -331,15 +226,159 @@ Datacake's webhook was used to send data.
 
 One of the conveniences of using Datacake is that I don't have to manage my own database. However, if I were to choose a database, MongoDB would be my preferred option due to its innovative approach of using JSON-like files. With Datacake's free tier, I can store several hundred datapoints without any cost, enabling me to dedicate my attention to other aspects of the project.
 
-### Real-Time Data Notifications
+### Real-Time Data Notifications W/ Telegram
 In the introductory section, I expressed my desire to notify bnbPlants users regarding when to water their plants. In addition to that, I aim to provide users with updates about soil moisture and other related data.
-To accomplish this objective, it was necessary for me to acquire real-time data from Datacake and forward it through telegram. The following is a module I composed for my bnbPlants_bot.js application to facilitate this task:
+To accomplish this objective, it was necessary for me to acquire real-time data from Datacake and forward it through Telegram. I opt for Telegram over Discord because my mother (who is my only user), who frequently communicates through Telegram, doesn't use Discord.
+
+To create a Telegram Bot, follow these steps:
+
+1. **Register on Telegram**: Create a Telegram account if you don't already have one.
+2. **Engage with BotFather**: Start a chat with BotFather. Initiate the process by sending the "/start" command, then follow the instructions BotFather provides.
+3. **Code the Bot**: The final step involves writing the bot. I chose to use JavaScript, my language of choice.
+
 ```
+// Import required libraries
+const TelegramBot = require('node-telegram-bot-api');
+const fetchData = require('./cake.js');
+
+// Set up the bot token
+const TOKEN = 'YOUR TOKEN HERE';
+const bot = new TelegramBot(TOKEN, {polling: true});
+
+let updateInterval = 24;
+
+// Define chatId, intervalId and checkWateringId
+let chatId;
+let intervalId;
+let checkWateringId;
+
+// Counter to check the number of times the plant needed watering consecutively
+let wateringCount = 0;
+
+// Function to fetch and deliver status
+async function sendStatus() {
+    fetchData().then((data) => {
+        console.log("Data received from Datacake: ", data);
+        data.TEMPERATURE = Math.round(data.TEMPERATURE * 10) / 10;
+        data.SOIL_MOISTURE = Math.round( (data.SOIL_MOISTURE / 2000) * 100) ;
+
+        const statusText = `🌫️ Moisture: ${data.SOIL_MOISTURE}%\n🌡️ Temperature: ${data.TEMPERATURE}°C\n🚰 Water in: ${data.DAYS} days`;
+        bot.sendMessage(chatId, statusText);
+        const seeMoreMessage = `See more at https://app.datacake.de/dashboard/d/de83fefc-12d6-4ee9-87cc-da17489cd981`;
+        bot.sendMessage(chatId, seeMoreMessage);
+    });
+}
+
+// Function to check if plant needs watering and send reminder message if it does
+async function checkWateringStatus() {
+    fetchData().then((data) => {
+      console.log("Checking watering status...")
+        if (data.DAYS === 0) {
+            console.log("Uh oh, plant needs watering! 🌵" + `Moisture: ${data.moisture / 2000}`);
+            wateringCount++;
+
+            if (wateringCount === 5) {
+               console.log("Sending reminder message...");
+                bot.sendMessage(chatId, "Your plant is parched! 🌵 Please hydrate 💦 it as soon as possible!");
+            }
+        } else {
+            console.log("Plant is fine! 🌱")
+            wateringCount = 0; // reset counter if not at zero
+        }
+    });
+}
+
+// Function to fetch and send status at regular intervals
+function startUpdateInterval() {
+    // Reset the preceding interval if it's present
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+
+    intervalId = setInterval(sendStatus, updateInterval * 3600000); // Convert updateInterval from hours to milliseconds
+}
+
+// Function to check watering status every 10 minutes
+function startCheckWateringInterval() {
+    // Reset the preceding interval if it's present
+    if (checkWateringId) {
+        clearInterval(checkWateringId);
+    }
+
+    checkWateringId = setInterval(checkWateringStatus, (10 / 3) * 60000); // 3.33... minutes in milliseconds
+}
+
+// Event handlers for commands
+bot.onText(/\/status/, (msg) => {
+  chatId = msg.chat.id;
+  sendStatus();
+});
+
+bot.onText(/\/interval$/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Specify a number following the command, like "/interval 24"');
+});
+
+bot.onText(/\/interval (.+)/, (msg, match) => {
+  chatId = msg.chat.id;
+  const resp = match[1];
+  if (!isNaN(resp) && isFinite(resp) && resp >= 0.25 && resp <= 168) {
+    updateInterval = resp;
+    const intervalMessage = resp == 1 ? 'Update interval set to each hour' : `Update interval set to every ${resp} hours`;
+    bot.sendMessage(chatId, intervalMessage);
+    startUpdateInterval(); // Reset the update interval using the new value
+  } else {
+    bot.sendMessage(chatId, 'Enter a valid number between 0.25 and 168 for the update interval (in hours)');
+  }
+});
+
+bot.onText(/\/help/, (msg) => {
+  chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Commands:\n/status - Get current plant status\n/interval - Set update interval (in hours)');
+});
+
+bot.onText(/\/start/, (msg) => {
+  chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Welcome to BnB Plants Bot!');
+  bot.sendMessage(chatId, 'Commands:\n/status - Get current plant status\n/interval - Set update interval (in hours)\n/help - Get command list');
+  startUpdateInterval(); // Begin the update interval when the bot initiates
+  startCheckWateringInterval(); // Begin the watering check interval when the bot initiates
+});
+```
+
+`cake.js` looks like this:
+```
+const axios = require('axios');
+
+const API_TOKEN = 'YOUR API TOKEN HERE';
+const DEVICE_URL = 'YOUR DEVICE URL HERE';
+
+const formatDateTime = (date, hours, minutes, seconds, milliseconds) => {
+    date.setHours(hours, minutes, seconds, milliseconds);
+    
+    const padNumber = (number, length = 2) => 
+        String(number).padStart(length, '0');
+    
+    const dateString = [
+        date.getFullYear(),
+        padNumber(date.getMonth() + 1),
+        padNumber(date.getDate()),
+    ].join('-');
+
+    const timeString = [
+        padNumber(date.getHours()),
+        padNumber(date.getMinutes()),
+        padNumber(date.getSeconds()),
+    ].join(':');
+    
+    return `${dateString}T${timeString}.${padNumber(date.getMilliseconds(), 3)}`;
+};
+
 async function fetchData() {
     const now = new Date();
     const timeframeStart = formatDateTime(new Date(now), 0, 0, 0, 0);
     const timeframeEnd = formatDateTime(new Date(now), 23, 59, 59, 999);
-    const fields = 'TEMPERATURE,SOIL_MOISTURE';
+    const fields = 'TEMPERATURE,SOIL_MOISTURE,DAYS';
     const resolution = 'raw';
 
     const response = await axios.get(DEVICE_URL, {
@@ -354,23 +393,44 @@ async function fetchData() {
         },
     });
 
-    const lastTwoEntries = response.data.slice(-2);
+    const lastCoupleEntries = response.data.slice(-6);
 
-    const combinedEntry = {
-        time: lastTwoEntries[0].time,
-        SOIL_MOISTURE: lastTwoEntries[0].SOIL_MOISTURE || lastTwoEntries[1].SOIL_MOISTURE,
-        TEMPERATURE: lastTwoEntries[0].TEMPERATURE || lastTwoEntries[1].TEMPERATURE,
+    // loop through lastCoupleEntries, and create a new json object. Include the first soil moisture value that is not null, and the first temperature value that is not null, and the first days value that is not null
+    let combinedEntry = {
+        SOIL_MOISTURE: null,
+        TEMPERATURE: null,
+        DAYS: null,
     };
+
+    lastCoupleEntries.forEach(entry => {
+      Object.keys(entry).forEach(key => {
+        if (entry[key] !== null) {
+          combinedEntry[key] = entry[key];
+        }
+      });
+    });
 
     return combinedEntry;
 };
 
 // export the fetchData function
 module.exports = fetchData;
-```
-This module is incorporated in the code and is also part of the finalized bnbPlants_bot.js software.
 
-This also uses the DataCake webhooks.
+async function main() {
+    data = await fetchData();
+    console.log(data);
+}
+
+// if this is the main module, run main()
+if (require.main === module) {
+    main();
+}
+
+```
+
+
+In order to execute the code, NodeJS needs to be installed. You can find the installation instructions [here](https://nodejs.dev/en/learn/how-to-install-nodejs/)
+
 
 # Areas of Improvement and Potential Further Development
 1. **Launch of Custom Dashboard**: The Datacake dashboard serves its purpose well. However, a custom dashboard can provide greater flexibility and be tailored specifically to bnbPlants' needs.
