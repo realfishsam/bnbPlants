@@ -458,3 +458,6 @@ I hope that bnbPlants inspires and assists others in their journey to explore th
 </div>
 
 ## Video Presentation
+<a href="https://www.youtube.com/watch?v=0glz78bLsBI&ab_channel=SamuelTinnerholm" target="_blank">
+ <img src="https://i9.ytimg.com/vi/0glz78bLsBI/mqdefault.jpg?v=64a5c67f&sqp=COSLl6UG&rs=AOn4CLAOGxKm3muPY2XDt_ukx4Wp4KUpvg" alt="Watch the video" border="10" />
+</a>
