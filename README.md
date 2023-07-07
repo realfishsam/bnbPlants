@@ -6,6 +6,12 @@
 
 Say goodbye to dry plants and hello to bnbPlants: the witty, moisture-measuring marvel that keeps your green companions hydrated! bnbPlants measures soil moisture, offers a dashboard, and sends witty reminders to water your plants.
 
+## Video Presentation
+<a href="https://www.youtube.com/watch?v=0glz78bLsBI&ab_channel=SamuelTinnerholm" target="_blank">
+ <img src="https://i9.ytimg.com/vi/0glz78bLsBI/maxresdefault.jpg?v=64a8856e&sqp=CISKoqUG&rs=AOn4CLB7Gr0SjjHiYBx7XlhOb7aGhaeV8A" alt="Video Presentation" border="10" />
+</a>
+
+
 # Configure & Run Software
 ## Configure
 
@@ -377,8 +383,3 @@ I hope that bnbPlants inspires and assists others in their journey to explore th
   <img src="assets/imgs/p3.png" width="225">
   <img src="assets/imgs/p4.png" width="225">
 </div>
-
-## Video Presentation
-<a href="https://www.youtube.com/watch?v=0glz78bLsBI&ab_channel=SamuelTinnerholm" target="_blank">
- <img src="https://i9.ytimg.com/vi/0glz78bLsBI/mqdefault.jpg?v=64a5c67f&sqp=COSLl6UG&rs=AOn4CLAOGxKm3muPY2XDt_ukx4Wp4KUpvg" alt="Watch the video" border="10" />
-</a>
