@@ -359,6 +359,13 @@ bot.onText(/\/start/, (msg) => {
 In order to execute the code, NodeJS needs to be installed. You can find the installation instructions [here](https://nodejs.dev/en/learn/how-to-install-nodejs/)
 
 
+#### Bot Screenshots
+<div style="display: flex; justify-content: space-around;">
+ <img src="assets/IMG_7128.jpg" width="500"> 
+ <img src="assets/IMG_7127.jpg" width="500">
+</div>
+
+
 # Areas of Improvement and Potential Further Development
 1. **Launch of Custom Dashboard**: The Datacake dashboard serves its purpose well. However, a custom dashboard can provide greater flexibility and be tailored specifically to bnbPlants' needs.
 2. **Support for Multiple Plants**: At present, the system supports one plant. But users often have more than one plant they would like to monitor.
